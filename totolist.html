@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="addItem">新增代辦事項</button>
+        <ul>
+            <li v-for="(item, index) in todoList" >
+                <input type="checkbox">
+                <input type="text" v-model="todoList[index]">
+                <button @click="removeItem(index)">X</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const app = {
+
+            data() {
+                return {
+                    todoList: [
+                        '四廠 PLC',
+                        '軸卡',
+                        '修改二廠問題清單'
+                    ],
+                };
+            },
+
+            methods: {
+                addItem() {
+                    this.todoList.push('');
+                },
+                removeItem(index) {
+                    console.log(index);
+                    this.todoList.splice(index, 1);
+                }
+            }
+
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>

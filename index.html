@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        console.log('start');
+        setTimeout (() => console.log("hello"),0);
+        Promise
+            .resolve(() => console.log('hi'))
+            .then(() => console.log('hi22'));
+
+        console.log("end");
+    </script>
 </body>
 </html>
